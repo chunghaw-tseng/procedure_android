@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f5f5f5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black">#000</color>
+    <color name="lighter_black">#0C0C0C</color>
+    <color name="starry_night">#0375B4</color>
+    <color name="paper">#F4F4F4</color>
+    <color name="tangerine">#E37222</color>
+    <color name="tan">#EEAA7B</color>
+    <color name="electric">#3CC47C</color>
+    <color name="powder">#66B98F</color>
+    <color name="overcast">#9099A2</color>
+    <color name="cyan">#43C0F6</color>
+    <color name="dark_grey">#757575</color>
+    <color name="grey">#9E9E9E</color>
+    <color name="blue_color">#0080c6</color>
+    <color name="poppy">#FF420E</color>
+    <color name="gold">#F9A602</color>
+    <color name="bumblebee">#FCE205</color>
+    <color name="tool_bg">#151414</color>
+
+    <!--Pallette-->
+    <color name="white">#FFFFFF</color>
+    <color name="blue_color_picker">#0066FF</color>
+    <color name="brown_color_picker">#AF593E</color>
+    <color name="green_color_picker">#01A368</color>
+    <color name="orange_color_picker">#FF861F</color>
+    <color name="red_color_picker">#ED0A3F</color>
+    <color name="red_orange_color_picker">#FF3F34</color>
+    <color name="sky_blue_color_picker">#76D7EA</color>
+    <color name="violet_color_picker">#8359A3</color>
+    <color name="yellow_color_picker">#FBE870</color>
+    <color name="yellow_green_color_picker">#C5E17A</color>
+
+
+    <!--For Crop-->
+    <!--<color name="colorPrimary">#5DAC81</color>-->
+    <!--<color name="colorPrimaryDark">#4F916D</color>-->
+    <!--<color name="colorAccent">#5DAC81</color>-->
+
+</resources>

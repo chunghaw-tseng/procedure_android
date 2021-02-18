@@ -1,0 +1,1277 @@
+
+<!DOCTYPE html>
+<html xml:lang="ja" lang="ja">
+
+<head>
+<meta charset="utf-8">
+
+<title>Procedure System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel='stylesheet' href='/lib/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css' />
+<link rel="stylesheet" type="text/css" href="/lib/css/styles.css" media="screen, print" title="default" />
+<link rel='stylesheet' href='/lib/js/datatables/extensions/Select/css/select.dataTables.min.css' />
+<link rel='stylesheet' href='/lib/js/datatables/media/css/dataTables.foundation.min.css' />
+<link rel='stylesheet' href='/lib/js/datatables/extensions/RowReorder/css/rowReorder.dataTables.min.css'/>
+<link rel='stylesheet' href='/lib/js/datatables/extensions/Responsive/css/responsive.dataTables.min.css' />
+<link type="text/css" rel="stylesheet" href="/lib/js/jqueryui/jquery-ui.css">
+<link type='text/css' href='/lib/js/simplemodal/modalbasic.css' rel='stylesheet' media='screen' />
+
+
+</head>
+
+<style type="text/css">
+
+.left {
+    width: 30%;
+    float: left;
+    text-align: right;
+}
+.right {
+    width: 65%;
+    margin-left: 10px;
+    float:left;
+}
+.optionbtn{
+  display: inline-block;
+  float: left;
+}
+
+.togglebtn{
+  width : 45% !important;
+}
+
+.active{
+  background-color: #29AB87 !important;
+}
+
+.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content{
+  z-index: 9999 !important;
+}
+
+</style>
+
+<body>
+
+
+<!-- Template wrapping headers -->
+<div id="masterdiv" style="padding:0px;margin:0px;height:100%;"  data-role="page">
+<div id='container'>
+<div id='col-a'>
+<div class='inner' id="pagedev">
+<!--
+The code here will be wrapped in the LONE template.
+It will be inside the div heirachy above
+***********************************************************************************
+**********************************************************************************
+-->
+<strong><h2 style="font-size: 24px; margin-bottom: 35px;" style="text-align: center;" id="pgtitle">Loading, Please Wait...</h2></strong>
+
+
+    <div style="display: inline-block; width: 95%; margin-left: 45px;">
+      <button id="productbut" class="optionbtn togglebtn active" data-inline="true">Products</button>
+      <button id="categoriesbut" class="optionbtn togglebtn" data-inline="true">Categories</button>
+    </div>
+
+<!-- Controls here -->
+
+<div id="producttable">
+    <div style="padding-top:20px;display: inline-block;">
+      <button id="addnewbut" class="optionbtn" data-inline="true">新規</button>
+      <button id="editbut" class="optionbtn" data-inline="true">編集</button>
+      <button id="deletebut" class="optionbtn" data-inline="true">削除</button>
+      <a id="printbut" class="optionbtn ui-btn" data-inline="true" href="" data-role='None' target="_blank"　download>手順書作成</a>
+    </div>
+
+
+    <!-- Table Here  -->
+    <div style="width:100%;display:inline-block;background-color:#EBEBEB;">
+    <div style="padding:0px 20px 20px 20px">
+      <table id="coretable" class="display" cellspacing="0" width="100%" data-role="none"></table>
+    </div>
+    </div>   
+</div>
+
+<div id="categoriestable">
+    <div style="padding-top:20px;display: inline-block;">
+      <button id="addnewcatbut" class="optionbtn" data-inline="true">新規</button>
+      <button id="editcatbut" class="optionbtn" data-inline="true">編集</button>
+      <button id="deletecatbut" class="optionbtn" data-inline="true">削除</button>
+    </div>
+
+    <div style="width:100%;display:inline-block;background-color:#EBEBEB;">
+    <div style="padding:0px 20px 20px 20px">
+      <table id="catgtable" class="display" cellspacing="0" width="100%" data-role="none"></table>
+    </div>
+    </div>
+</div>
+
+  <!--
+  ***********************************************************************************
+  ***********************************************************************************
+  End template wrapped code
+  -->
+</div>
+</div>
+</div>
+  </div>
+
+<!-- Product Window -->
+  <div id="win_tdata" style="display:none">
+    <div class="floatingwindow">
+
+    		<strong><h2 id ="twin_title" style="text-align:center">新規品名</h2></strong>
+
+    		<div class="floatingwindowsection">
+    			<div class="ui-widget">
+    			<span class="windowsectionlab">管理番号:</span>
+    			<input type="number" id="twin_managementnum" style="width:100%;"></input>
+    			</div>
+    		</div>
+
+        <div class="floatingwindowsection" style="background-color:#EBEBEB;">
+          <div class="ui-widget">
+          <span class="windowsectionlab">品名:</span>
+          <input type="text" id="twin_productname" style="width:100%"></input>
+          </div>
+        </div>
+
+        <div class="floatingwindowsection" style="background-color:#EBEBEB;">
+            <div class="ui-widget">
+            <span class="windowsectionlab">カテゴリー:</span>
+            <input id="twin_category" style="width:100%"></input>
+            </div>
+          </div>
+
+        <div class="floatingwindowsection" style="background-color:#EBEBEB;">
+      			<div class="ui-widget">
+        			<span class="windowsectionlab">作成者:</span>
+        			<input type="text" id="twin_creator" style="width:100%"></input>
+      			</div>
+      	</div>
+
+
+    		<div align="center">
+    			<span id="twin_error" style="display:inline-block;width:200px;text-align:center;color:red;font-weight:bold"></span>
+    		</div>
+
+      <div class="L1Button" id="twin_but_ok" style="width:100px;height:40px;line-height:40px;margin-left:80px">登録</div>
+    	<div class="L1Button" id="twin_but_cancel" style="width:100px;height:40px;line-height:40px;margin:10px;margin:10px">キャンセル</div>
+    
+    </div><!--End of Floating Window -->
+  </div>
+
+  <!-- Category Window -->
+<div id="win_catdata" style="display:none">
+    <div class="floatingwindow">
+
+        <strong><h2 id ="twin_cattitle" style="text-align:center">新規カテゴリー</h2></strong>
+
+        <div class="floatingwindowsection">
+          <div class="ui-widget">
+          <span class="windowsectionlab">カテゴリー名:</span>
+          <input type="text" id="twin_catname" style="width:100%;"></input>
+          </div>
+        </div>
+
+        <div align="center">
+          <span id="twin_caterror" style="display:inline-block;width:200px;text-align:center;color:red;font-weight:bold"></span>
+        </div>
+
+      <div class="L1Button" id="twin_catbut_ok" style="width:100px;height:40px;line-height:40px;margin-left:80px">登録</div>
+      <div class="L1Button" id="twin_catbut_cancel" style="width:100px;height:40px;line-height:40px;margin:10px;margin:10px">キャンセル</div>
+    
+    </div><!--End of Floating Window -->
+  </div>
+
+
+<!-- Pop Up Notification Windows -->
+  <div id="win_notify" style="display:none">
+    <div class="floatingwindow" id="notify_window" style="width:400px;">
+      <h2 id="notify_title" style="text-align:center;padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px;height:30px;">Warning</h2>
+      <div style="padding:10px;text-align:center">
+      <p style="font-size:18px" id="notify_message">User saved!</p>
+      </div>
+
+      <div style="width:100%;text-align:center">
+      <div class="L1Button" id="notify_cancel" style="width:100px;height:30px;line-height:30px;margin-top:10px;margin-bottom:20px;margin-left:10px;margin-right:10px;display:inline-block">キャンセル</div>
+      <div class="L1Button" id="notify_ok" style="width:100px;height:30px;line-height:30px;margin-top:10px;margin-bottom:20px;margin-left:10px;margin-right:10px;display:inline-block">確認</div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="/lib/js/jquery/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="/lib/js/lone/common.js"></script>
+  <script src="/lib/js/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script src="/lib/js/datatables/extensions/Select/js/dataTables.select.min.js"></script>
+  <script src="/lib/js/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+  <script src="/lib/js/datatables/extensions/RowReorder/js/dataTables.rowReorder.min.js"></script>
+  <script src="/lib/js/jqueryui/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="/lib/js/jqueryui/jquery.ui.touch-punch.min.js"></script>
+  <script type='text/javascript' src='/lib/js/simplemodal/jquery.simplemodal-1.4.4.js'></script>
+  <script type='text/javascript' src='/lib/js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js'></script>
+
+  </body>
+
+
+
+  <script>
+  //This script section is responsible for loading the page
+  //No logic processing is done here
+
+  function pageloadcomplete()
+  {
+      console.log("Load Complete Called")
+      PageReady();
+  }
+
+  function loadpopupwindows()
+  {
+      pageloadcomplete();
+  }
+
+
+  $(document).ready(
+  	function()
+  	{
+      var isMobile = checkDevice();
+  	   insertRealtimeMenu(isMobile);
+  	}
+  );
+
+  </script>
+
+
+<!-- This is for the modals, the display floating windows  -->
+<!-- Add products after that is categories -->
+  <script>
+
+  ;(function ( $, window, document, undefined ) {
+
+  		var default_handlers = {
+  			oncancelbut : sink_event,
+  			onokbut : sink_event,
+        instance : undefined
+  		};
+
+  		var default_displaydata = {
+  			number:"",
+        pro_name:"",
+        date:"",
+        last_date: "",
+  			creator:"",
+        category:""
+  		};
+
+      var displaydata = {}
+      var handlers = {}
+
+
+      $("#twin_category").autocomplete({
+            // source: ["test", "aaa"]
+            multiple: true,
+            disabled: false,
+            minLength: 0,
+            autoFocus: true,
+            source: function( request, response ) {
+                $.post('/plugins/chn1802/getAllCategories',null,function( data ) {
+                    parsed = JSON.parse(data);
+                    response($.ui.autocomplete.filter(parsed, request.term));
+              });
+          },
+          // open: function (){
+          //   console.log("Removing class");
+          //  $('ul .ui.autocomplete').removeClass('ui-front');}
+      });
+      // TODO Fix the autocomplete
+
+  		function sink_event(options)
+  		{
+  				console.log("SINKING EVENT")
+  		}
+
+      function loadvalues()
+      {
+          if(displaydata.number=="")
+          {
+              $("#twin_title").text("新規品名");
+              $("#twin_managementnum").val("");
+              $("#twin_managementnum").prop('disabled', false);
+
+              $("#twin_productname").val("");
+              $("#twin_creator").val("");
+              $("#twin_category").val("");
+          }
+          else {
+            $("#twin_title").text("編集品名");
+
+            $("#twin_managementnum").val(displaydata.number);
+            $("#twin_managementnum").prop('disabled', true);
+            $("#twin_productname").val(displaydata.pro_name);
+
+            $("#twin_creator").val(displaydata.creator);
+            $("#twin_category").val(displaydata.category);
+
+          }
+
+      }
+
+  		function display_teditwin(data, eventhandles)
+  		{
+          //Close any open modal windows
+          $.modal.close();
+
+  				displaydata = jQuery.extend( {}, default_displaydata, data);
+  				handlers = jQuery.extend( {}, default_handlers, eventhandles);
+
+          loadvalues();
+
+  				$("#twin_error").text("");
+  				$('#win_tdata').modal();
+  		}
+
+  		$('#twin_but_cancel').click(function()
+      {
+          $.modal.close();
+          handlers.oncancelbut(displaydata);
+      });
+
+  		$('#twin_but_ok').click(function()
+  		{
+          //RETREIVE THE DATA
+          var created;
+          var man_num = $("#twin_managementnum").val();
+          var name = $("#twin_productname").val();
+          var creator = $("#twin_creator").val();
+          var category = $("#twin_category").val();
+
+          if (displaydata.date == ""){
+            created = $.now();
+          }else{
+            created = displaydata.date;
+
+          }
+
+          var last_date = $.now();
+          // var last_date = new Date().toJSON().slice(0,10).split('-').reverse().join('/');
+
+          console.log("The last_date is " + last_date);
+          console.log("The created is " + created);
+
+          //CHECK THE DATA HERE
+          if(!man_num)
+          {
+              $("#twin_error").text("管理番号を入力してください");
+              return;
+          }
+
+          if(!name){
+             $("#twin_error").text("品名を入力してください");
+            return;
+          }
+
+          console.log(category);
+          console.log(g_metricnames);
+
+          if(!category){
+            category = null;
+          }else{
+            if(jQuery.inArray(category, g_metricnames)==-1)
+            {
+              $("#twin_error").text("カテゴリは存在しません。");
+              return;
+            }
+          }
+
+          if(!creator)
+          {
+              $("#twin_error").text("作成者を入力してください");
+              return;
+          }
+
+          //UPDATE DISPLAYDATA HERE
+          displaydata.number = man_num;
+          displaydata.pro_name = name;
+          displaydata.date = created;
+          displaydata.last_date = last_date;
+          displaydata.creator = creator;
+          displaydata.category = category;
+
+          console.log(displaydata);
+
+          $.modal.close();
+  				handlers.onokbut(displaydata);
+
+  		});
+
+  		window.display_teditwin = display_teditwin;
+
+  })( jQuery, window, document );
+
+
+// For category
+  ;(function ( $, window, document, undefined ) {
+
+      var category_handlers = {
+        oncancelbut : sink_event,
+        onokbut : sink_event,
+        instance : undefined
+      };
+
+      var category_displaydata = {
+        catname:"",
+        catid: ""
+      };
+
+      var cat_displaydata = {}
+      var cat_handlers = {}
+
+
+      function sink_event(options)
+      {
+          console.log("SINKING EVENT")
+      }
+
+      function loadvalues()
+      {
+          console.log(cat_displaydata);
+
+          if(cat_displaydata.catname == "")
+          {
+              console.log("New");
+              $("#twin_cattitle").text("新規カテゴリ");
+              $("#twin_catname").val("");
+          }
+          else {
+            $("#twin_cattitle").text("編集カテゴリ");
+            $("#twin_catname").val(cat_displaydata.catname);
+          }
+
+      }
+
+      function display_teditwincat(data, eventhandles)
+      {
+          //Close any open modal windows
+          $.modal.close();
+
+          console.log(data);
+          cat_displaydata = jQuery.extend( {}, category_displaydata, data);
+
+          console.log(cat_displaydata);
+          cat_handlers = jQuery.extend( {}, cat_handlers, eventhandles);
+
+          loadvalues();
+
+          console.log("Diplaying Categories");
+          $("#twin_caterror").text("");
+          $('#win_catdata').modal();
+          console.log("Showing Modal");
+
+      }
+
+      $('#twin_catbut_cancel').click(function()
+      {
+          $.modal.close();
+          cat_handlers.oncancelbut(cat_displaydata);
+      });
+
+      $('#twin_catbut_ok').click(function()
+      {
+          //RETREIVE THE DATA
+          var created;
+          var name = $("#twin_catname").val();
+         
+          if(!name){
+             $("#twin_caterror").text("カテゴリ名を入力してください");
+            return;
+          }
+
+          cat_displaydata.catname = name;
+          cat_displaydata.catid = cat_displaydata.catid;
+
+          $.modal.close();
+          cat_handlers.onokbut(cat_displaydata);
+
+      });
+
+      window.display_teditwincat = display_teditwincat;
+
+  })( jQuery, window, document );
+
+
+  </script>
+
+<!-- This is also for the Notify floating windows -->
+  <script>
+
+  ;(function ( $, window, document, undefined ) {
+
+
+  		var default_settings = {
+        title: "Warning",
+        message: "No message to display",
+  			onokbut : sink_event,
+  			oncancelbut : sink_event,
+        displaycancel: false,
+        color: "#000000",
+  			statedata : undefined,
+  		};
+
+      var settings = {}
+
+  		function sink_event(statedata)
+  		{
+  				console.log("SINKING EVENT")
+  				console.log(statedata)
+  		}
+
+  		function display_notify(options)
+  		{
+          //Close any open modal windows
+          $.modal.close();
+
+  				settings = jQuery.extend( {}, default_settings, options);
+
+          if(settings.displaycancel)
+              $('#notify_cancel').show();
+          else
+              $('#notify_cancel').hide();
+
+          $("#notify_title").text(settings.title);
+          $("#notify_message").text(settings.message);
+
+          $("#notify_message").css({"color":settings.color});
+  				$('#win_notify').modal();
+  		}
+
+  		$('#notify_cancel').click(function()
+      {
+          $.modal.close();
+          settings.oncancelbut(settings.statedata);
+      });
+
+  		$('#notify_ok').click(function()
+  		{
+          $.modal.close();
+  				settings.onokbut(settings.statedata);
+  		});
+
+  		window.display_notify = display_notify;
+
+  })( jQuery, window, document );
+
+
+  </script>
+
+
+
+<!-- Main Javascript is here -->
+
+  <script>
+  var maintable, categoriestable;
+  var tabledata = [];
+  var g_metricnames = [];  //Extracted for autocomplete use
+
+  var g_metricdata; //For the table data
+  var category_data;
+  var g_dsetdata;
+
+  function PageReady()
+  {
+    //Select our page item
+    var isMobile = checkDevice();
+    if(!isMobile){
+      $("#col-a").css({'width':'680px','height':'800px'});
+      $('#menu_plugins').addClass("fcs");
+    }else{
+
+    }
+
+    $('#pgtitle').html("梱包手順管理システム");
+    console.log("Building Product Table");
+    BuildTable();
+    //Load the data here
+    $.post('/plugins/chn1802/getAllProducts',{},LoadTable);
+
+    // Build Category Table
+    console.log("Building Category Table");
+    BuildCategoriesTable();
+    //Load the data here
+    $.post('/plugins/chn1802/getCategoryTable',{},LoadCategoryTable);
+    $("#categoriestable").hide();
+
+
+    // Button Selection
+    // Show Categories table
+    $("#categoriesbut").click(function(){
+      $("#categoriesbut").addClass('active');
+      $("#productbut").removeClass('active');
+      // Load Tables
+      $("#categoriestable").show();
+      // To fix the table header problem
+      categoriestable.draw();
+      $("#producttable").hide();
+      maintable.rows().deselect();
+
+    });
+
+    // Show product table 
+    $("#productbut").click(function(event) {
+      $("#productbut").addClass('active');
+      $("#categoriesbut").removeClass('active');
+      $("#categoriestable").hide();
+      maintable.clear();
+      $.post('/plugins/chn1802/getAllProducts',{},LoadTable);
+      $("#producttable").show();
+      categoriestable.rows().deselect();
+    });
+
+
+// This is for cache busting
+    ord=Math.random()*10000000000000000;
+    $('.busted').each(function()
+    {
+      cururl=$(this).attr("href")
+      cururl=cururl+'?'+ord;
+      $(this).attr("href",cururl)
+
+    });
+  }
+
+// This is used for the orientation change
+  $(window).on("orientationchange",function(){
+    maintable.draw(false);
+    maintable.responsive.recalc();
+    categoriestable.draw(false);
+    categoriestable.responsive.recalc();
+  });
+
+  </script>
+
+
+  <script>
+
+
+// -----------------------------------------------------------------------
+// Product Table  Functions
+// -----------------------------------------------------------------------
+
+  // Loading Product Table
+  function LoadTable(data)
+  {
+    console.log("Loading table");
+    // console.log(data);
+    usersdata = JSON.parse(data);
+    g_metricdata = usersdata;
+
+    console.log("The g_metricdata is ");
+    console.log(g_metricdata);
+    for(i = 0; i < usersdata.length ; i++){
+      maintable.row.add(usersdata[i]);
+    }
+    maintable.draw(false);
+    maintable.responsive.recalc();
+    return;
+  }
+
+// Building the actual Table with the controls
+ function BuildTable(data){
+
+      console.log("In Build Table");
+
+      maintable = $('#coretable').DataTable({
+                                  responsive: true,
+                                  scrollY: "370px",
+                                  // scrollCollapse: true,
+                                  paging: false,
+                                  data: tabledata,
+                                  columns: [
+                                            { title: "管理番号" },
+                                            { title: "品名" },
+                                            { title: "作成日" },
+                                            { title: "更新日" },
+                                            { title: "作成者"},
+                                            { title: "カテゴリー"},
+                                           ]
+                                  });
+
+      console.log("Finished building table");
+      $('#coretable tbody').on( 'click', 'tr', function () {
+          if ( $(this).hasClass('selected') ) {
+              $(this).removeClass('selected');
+              console.log("deselect")
+          }
+          else {
+              maintable.$('tr.selected').removeClass('selected');
+              $(this).addClass('selected');
+              console.log("Selecting")
+          }
+      });
+
+      // Buttons controls are here
+      $('#addnewbut').click(function (e){
+                          display_teditwin({},
+                                           {
+                                              onokbut: NewRowRequest
+                                           }
+                                          );
+                        });
+
+      $('#editbut').click(function (e)
+      {
+        selrow = maintable.row('.selected').data();
+        var seldata;
+        if(selrow)
+        {
+            // Need to get the timestamps from the g_metricdata variable
+            for (var i=0; i < g_metricdata.length; i++){
+              if (selrow[0] == g_metricdata[i][0]){
+                seldata = g_metricdata[i];
+                break;
+              }
+            }
+
+            display_teditwin({
+                                number:seldata[0],
+                                pro_name:seldata[1],
+                                date:seldata[2],
+                                last_date:seldata[3],
+                                creator:seldata[4],
+                                category:seldata[5]
+                              },
+                              {
+                                onokbut: UpdateRowRequest
+                              }
+                            );
+        }
+        else
+        {
+          display_notify({
+            title: "エラー",
+            message: "例を選択してください。"
+          });
+        }
+
+      });
+      $('#deletebut').click(function (e){
+
+        selrow = maintable.row('.selected').data();
+        if(selrow)
+        {
+            display_notify({
+              title: "WARNING",
+              message: "削除します。よろしですか？",
+              color: "#FF0000",
+              onokbut: removeProduct,
+              displaycancel: true,
+              statedata: selrow
+            });
+        }
+        else {
+          display_notify({
+            title: "エラー",
+            message: "例を選択してください。"
+          });
+        }
+
+      });
+
+      // Print button click listener
+    $("#printbut").click(function(){
+       selrow = maintable.row('.selected').data();
+        if(selrow)
+        {
+            console.log("Making Print " + selrow[0]);
+
+            $("#printbut").attr("href",'/plugins/chn1802/makePrintableFile/?productid='+JSON.stringify(selrow[0]));
+            maintable.rows().deselect();
+        }
+        else {
+          display_notify({
+            title: "エラー",
+            message: "例を選択してください。"
+          });
+        }
+
+    });
+
+  }
+
+// ON ADD Product
+// Adding new row from Website and save to the server
+  function NewRowRequest(options)
+  {
+    console.log("in new row request");
+    console.log(g_metricdata);
+    console.log(options);
+// This checks if there are duplicates on the list already
+    for (var i=0 ; i<g_metricdata.length; i++)
+    {
+        //Checking if the list is empty
+        if(g_metricdata[i] != null){
+        //Checking the management number
+        // Make sure that the option is the correct one
+         if(g_metricdata[i][0] == options.number)
+         {
+             display_notify({
+               title: "Error",
+               message: "管理番号も存在します、編集をしてください。",
+               color: "#FF0000"
+             });
+             return;
+         }
+       }
+    }
+    var jsondata = JSON.stringify({ number: options.number,
+                                  name: options.pro_name,
+                                  date: options.date,
+                                  last_date: options.last_date,
+                                  creator: options.creator,
+                                  category: options.category});
+
+    var postdata ={ product: jsondata };    
+    console.log(postdata);
+    // Add the products to the database
+     $.post('/plugins/chn1802/addProduct',postdata,NewRowComplete);
+  }
+
+// On ADD FINISH Product
+// Function is called after the data is saved in the DB
+  function NewRowComplete(response)
+  {
+    // Need to parse since it's JSON
+    var resp = JSON.parse(response);
+    console.log("In new row complete " + resp);
+    if(!resp)
+    {
+        display_notify({
+          title: "エラー",
+          message: "エラーが発生しました。",
+          color: "#FF0000"
+        });
+    }
+    else
+    {
+      g_metricdata.push(resp);
+      row = maintable.row.add(resp);
+      display_notify({
+        title: "成功",
+        message: "追加しました。"
+      });
+      maintable.draw(false);
+      maintable.responsive.recalc();
+    }
+  }
+
+
+// On EDIT Product
+// Called before the posting to the DB
+  function UpdateRowRequest(options)
+  {
+      console.log("Updating row")
+      console.log(options)
+      // Timestamp
+      var createddate = createTimestampFromDate(options.date);
+      var jsondata = JSON.stringify({number: options.number,
+                                      name:options.pro_name,
+                                      date:createddate,
+                                      last_date:options.last_date,
+                                      creator: options.creator,
+                                      category: options.category});
+
+      var postdata = { product : jsondata};
+      console.log(postdata);
+       $.post('/plugins/chn1802/editProduct',postdata,UpdateRowComplete);
+  }
+
+// On EDIT FINISH Product
+// After the DB returns, to update the table
+  function UpdateRowComplete(response)
+  {
+      var resp = JSON.parse(response);
+      if(!resp)
+      {
+          display_notify({
+            title: "エラー",
+            message: "問題が発生しました。",
+            color: "#FF0000"
+          });
+      }
+      
+        // Update the g_metric
+        for (var i=0; i<g_metricdata.length; i++){
+          if(resp[0] == g_metricdata[i][0]){
+              g_metricdata[i] = resp;
+              break;
+          }
+        }
+
+        var tableRow = $("#coretable td").filter(function(){
+          return $(this).text() == resp[0];
+        }).closest("tr");
+        
+        maintable.row(tableRow).data(resp)
+        maintable.draw(false);
+        maintable.responsive.recalc();
+        display_notify({
+          title: "成功",
+          message: "更新されました。"
+        });
+        maintable.rows().deselect();
+  }
+
+// On REMOVE Product
+// Removing the product here
+  function removeProduct(options)
+  {
+      console.log("Removing channel " + options[0]);
+      if(options[0])
+      {
+        $.post('/plugins/chn1802/deleteProduct',{productid:options[0]},RemoveComplete);
+      }
+  }
+
+// On REMOVE FINISH Product
+// This is called after the product is deleted on the DB
+  function RemoveComplete(response)
+  {
+      console.log("Remove Complete")
+      var resp = JSON.parse(response);
+      if(resp)
+      {
+        // Finding the table row with the number
+          var tableRow = $("#coretable td").filter(function(){
+            return $(this).text() == resp;
+          }).closest("tr");
+          if(tableRow.length!=0 && maintable.row(tableRow).data()[0]== resp)
+          {
+              maintable.row(tableRow).remove()
+              maintable.draw(false);
+              maintable.responsive.recalc();
+              display_notify({
+                title: "成功",
+                message: "削除しました。"
+              });
+          }
+          //Need to remove from the database
+          for (var i=0 ; i<g_metricdata.length; i++)
+          {
+               if(g_metricdata[i] != null){
+                   if(g_metricdata[i][0]==resp)
+                   {
+                       delete g_metricdata[i];
+                       break;
+
+                   }
+               }
+          }
+      }
+      else {
+        display_notify({
+          title: "エラー",
+          message: "問題が発生しました。",
+          color: "#FF0000"
+        });
+      }
+  }
+
+
+// -------------------------------------------------------------------
+// Functions for the Category Table
+// -------------------------------------------------------------------
+
+// On LOAD Category Table 
+  function LoadCategoryTable(data){
+    console.log("Loading table");
+    // console.log(data);
+    var catdata = JSON.parse(data);
+    category_data = catdata;
+
+    // For the autocomplete
+    for (var i=0 ; i < category_data.length ; i ++){
+      g_metricnames.push(category_data[i][0]);
+    }
+
+    console.log("The category data is " + category_data);
+    for(i = 0; i < catdata.length ; i++){
+      categoriestable.row.add(catdata[i]);
+    }
+    categoriestable.draw(false);
+    categoriestable.responsive.recalc();
+    return;
+  }
+
+// CREATE the Categories Table
+ function BuildCategoriesTable(data){
+
+        categoriestable = $('#catgtable').DataTable({
+                                  responsive: true,
+                                  scrollY: "370px",
+                                  // scrollCollapse: true,
+                                  paging: false,
+                                  data: tabledata,
+                                  columns: [
+                                            { title: "名前"},
+                                            { title: "ID" }
+                                           ]
+                                  });
+
+        console.log("Finished building table");
+        $('#catgtable tbody').on( 'click', 'tr', function () {
+            if ( $(this).hasClass('selected') ) {
+                $(this).removeClass('selected');
+                console.log("deselect")
+            }
+            else {
+                categoriestable.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+                console.log("Selecting")
+            }
+        } );
+
+
+      // Buttons controls are here
+      $('#addnewcatbut').click(function (e){
+                          display_teditwincat({},
+                                           {
+                                              onokbut: NewCategoryRequest
+                                           }
+                                          );
+                        });
+
+      $('#editcatbut').click(function (e)
+      {
+        selrow = categoriestable.row('.selected').data();
+        var seldata;
+        if(selrow)
+        {
+            // Need to get the timestamps from the g_metricdata variable
+            for (var i=0; i < category_data.length; i++){
+              if (selrow[0] == category_data[i][0]){
+                seldata = category_data[i];
+                break;
+              }
+            }
+            display_teditwincat({
+                                catname:seldata[0],
+                                catid: seldata[1]
+                              },
+                              {
+                                onokbut: UpdateCategoryRequest
+                              }
+                            );
+        }
+        else
+        {
+          display_notify({
+            title: "エラー",
+            message: "例を選択してください。"
+          });
+        }
+
+      });
+      $('#deletecatbut').click(function (e){
+        selrow = categoriestable.row('.selected').data();
+        if(selrow)
+        {
+            display_notify({
+              title: "WARNING",
+              message: "削除します。よろしですか？",
+              color: "#FF0000",
+              onokbut: removeCategory,
+              displaycancel: true,
+              statedata: selrow
+            });
+        }
+        else {
+          display_notify({
+            title: "エラー",
+            message: "例を選択してください。"
+          });
+        }
+      });
+
+    }
+
+
+// ADD Category
+// Callback for add category
+  function NewCategoryRequest(options){
+    console.log("new category " + options);
+// This checks if there are duplicates on the list already
+    for (var i=0 ; i<category_data.length; i++)
+    {
+        //Checking if the list is empty
+        if(category_data[i] != null){
+        //Checking the management number
+        // Make sure that the option is the correct one
+         if(category_data[i][0] == options.catname)
+         {
+             display_notify({
+               title: "Error",
+               message: "カテゴリも存在します、編集をしてください。",
+               color: "#FF0000"
+             });
+             return;
+         }
+       }
+    }
+    var jsondata = JSON.stringify({
+                                  name: options.catname
+                                 });
+    var postdata ={ categoryname : jsondata };    
+    // Add the products to the database
+     $.post('/plugins/chn1802/addNewCategory',postdata,NewCategoryRowComplete);
+  }
+
+
+  // ADD FINISH Category
+  // Result for Category finish
+ function NewCategoryRowComplete(response){
+    var resp = JSON.parse(response);
+    console.log("In new row complete " + resp);
+    if(!resp)
+    {
+        display_notify({
+          title: "エラー",
+          message: "エラーが発生しました。",
+          color: "#FF0000"
+        });
+    }
+    else
+    {
+      // Add to g_metricnames
+      g_metricnames.push(resp[0])      
+      category_data.push(resp);
+      row = categoriestable.row.add(resp);
+
+      display_notify({
+        title: "成功",
+        message: "追加しました。"
+      });
+      categoriestable.draw(false);
+      categoriestable.responsive.recalc();
+    }
+ }
+
+// EDIT Category callback
+  function UpdateCategoryRequest(options){
+     console.log("Updating row")
+      console.log(options)
+      var jsondata = JSON.stringify({name:options.catname,
+                                      catid:options.catid
+                                      });
+
+      // TODO Date here
+      var postdata = {category : jsondata};
+      console.log(postdata);
+       $.post('/plugins/chn1802/editCategory',postdata,UpdateCategoryComplete);
+  }
+
+// EDIT FINISH Category 
+  function UpdateCategoryComplete(response){
+    var resp = JSON.parse(response);
+    if(!resp)
+      {
+          display_notify({
+            title: "エラー",
+            message: "問題が発生しました。",
+            color: "#FF0000"
+          });
+      }
+        // Update the g_metric
+        for (var i=0; i<category_data.length; i++){
+          if(resp[1] == category_data[i][1]){
+              category_data[i] = resp;
+              break;
+          }
+        }
+        var tableRow = $("#catgtable td").filter(function(){
+          return $(this).text() == resp[1];
+        }).closest("tr");
+
+        // Update g_metricnames
+        var index = jQuery.inArray(categoriestable.row(tableRow).data()[0], g_metricnames)
+        g_metricnames[index] = resp[0]
+        categoriestable.row(tableRow).data(resp);
+        categoriestable.draw(false);
+        categoriestable.responsive.recalc();
+        display_notify({
+          title: "成功",
+          message: "更新されました。"
+        });
+        categoriestable.rows().deselect();
+  }
+
+// REMOVE Category Callback
+  function removeCategory(options)
+  {
+    console.log("Removing channel")
+      console.log(options[1]);
+      if(options[1])
+      {
+        $.post('/plugins/chn1802/removeCategory',{catid:options[1]},RemoveCategoryComplete);
+      }
+  }
+
+// REMOVE FINISH Category Callback
+  function RemoveCategoryComplete(response){
+    console.log("Remove Complete")
+    var resp = response;
+    console.log(resp)
+      if(resp)
+      {
+        // Finding the table row with the number
+          var tableRow = $("#catgtable td").filter(function(){
+            return $(this).text() == resp;
+          }).closest("tr");
+          if(tableRow.length!=0 && categoriestable.row(tableRow).data()[1]== resp)
+          {
+              categoriestable.row(tableRow).remove()
+              categoriestable.draw(false);
+              categoriestable.responsive.recalc();
+              display_notify({
+                title: "成功",
+                message: "削除しました。"
+              });
+          }
+          //Need to remove from the database
+          for (var i=0 ; i<category_data.length; i++)
+          {
+               if(category_data[i] != null){
+                   if(category_data[i][0]==resp)
+                   {
+                       delete category_data[i];
+                       break;
+                   }
+               }
+          }
+          console.log(category_data);
+      }
+      else {
+        display_notify({
+          title: "エラー",
+          message: "問題が発生しました。",
+          color: "#FF0000"
+        });
+      }
+  }
+
+
+// UTILITY Function -> Makes timestamp from Date String
+  function createTimestampFromDate(dateStr){
+    var a=dateStr.split(" ");
+    var d=a[0].split("-");
+    var t=a[1].split(":");
+    var date = new Date(d[0],(d[1]-1),d[2],t[0],t[1],t[2]);
+    return date.getTime();
+  }
+
+  </script>
+  </html>

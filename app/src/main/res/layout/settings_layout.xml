@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/dark_grey"
+        android:layout_marginTop="30dp">
+
+        <ImageButton
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/back_btn"
+            android:src="@drawable/back"
+            android:background="@null"
+            android:id="@+id/back_btn"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titletext"
+            android:textSize="45sp"
+            android:textColor="@color/paper"
+            android:text="@string/settings_btn"
+            android:padding="15dp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:gravity="right"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:text="@string/ipadd_subtitle" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
+                android:gravity="left"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:inputType="text"
+                android:id="@+id/ip_edit"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_btn"
+        android:id="@+id/save_settings"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="30sp"
+        android:padding="30dp"
+        android:layout_margin="10dp"/>
+
+</RelativeLayout>

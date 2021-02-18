@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titlelayout"
+        android:background="@color/starry_night"
+        android:layout_marginTop="20dp">
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:contentDescription="@string/back_btn"
+        android:src="@drawable/back"
+        android:background="@null"
+        android:id="@+id/back_btn"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="45sp"
+        android:textColor="@color/paper"
+        android:text="@string/product_label"
+        android:id="@+id/overview_title"
+        android:padding="15dp"
+        android:layout_centerInParent="true"/>
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/save_layout"
+        android:layout_toStartOf="@id/add_procedure"
+        android:layout_centerVertical="true"
+        android:background="@color/electric"
+        android:src="@drawable/save"/>
+
+
+    <ImageButton
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/add_procedure"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:src="@drawable/add"/>
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlelayout"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:id="@+id/procedure_list"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"/>
+
+
+    <!-- For future reference for download -->
+    <!--<ImageButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+</RelativeLayout>

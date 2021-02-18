@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titletext"
+        android:textSize="45sp"
+        android:background="@color/starry_night"
+        android:textColor="@color/paper"
+        android:text="@string/app_name"
+        android:layout_marginTop="40dp"
+        android:padding="15dp"
+        android:gravity="center"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:id="@+id/view_btn"
+            android:textSize="35sp"
+            android:text="@string/view_procedure"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:textColor="@color/paper"
+            android:background="@drawable/view_btn"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:id="@+id/edit_btn"
+            android:textSize="35sp"
+            android:padding="10dp"
+            android:textColor="@color/paper"
+            android:background="@drawable/edit_btn"
+            android:drawableStart="@android:drawable/ic_menu_edit"
+            android:layout_margin="10dp"
+            android:text="@string/edit_procedure" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:id="@+id/settings_btn"
+            android:textSize="35sp"
+            android:padding="10dp"
+            android:textColor="@color/paper"
+            android:background="@drawable/settings_btn"
+            android:drawableStart="@android:drawable/ic_menu_preferences"
+            android:layout_margin="10dp"
+            android:text="@string/settings_btn" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

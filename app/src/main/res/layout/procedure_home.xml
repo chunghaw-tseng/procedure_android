@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Title Bar-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_bar"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/starry_night">
+
+        <ImageButton
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/back_btn"
+            android:src="@drawable/back"
+            android:background="@null"
+            android:id="@+id/back_btn"/>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:id="@+id/title_area"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_centerInParent="true">
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/right_btn"-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:background="@null"-->
+                    <!--android:contentDescription="@string/right_btn"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:src="@drawable/left" />-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titletext"
+                    android:textSize="45sp"
+                    android:textColor="@color/paper"
+                    android:text="@string/product_label"
+                    android:padding="15dp"
+                    android:gravity="center"/>
+
+                <!--<ImageButton-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:id="@+id/left_btn"-->
+                    <!--android:contentDescription="@string/left_btn"-->
+                    <!--android:layout_alignEnd="@+id/titletext"-->
+                    <!--android:background="@null"-->
+                    <!--android:src="@drawable/right"/>-->
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageButton
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/save_btn"
+            android:contentDescription="@string/save_btn"
+            android:background="@null"
+            android:src="@drawable/save"/>
+
+
+        <ImageButton
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/delete_btn"
+            android:contentDescription="@string/delete_btn"
+            android:background="@null"
+            android:src="@drawable/delete"/>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/title_bar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <!-- Procedure Title-->
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardMaxElevation="1dp"
+                app:cardElevation="0.7dp"
+                app:contentPaddingBottom="0dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="5dp"
+                cardCornerRadius="5dp"
+                android:id="@+id/title_information">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:scaleType="centerCrop"
+                            android:layout_margin="10dp"
+                            android:contentDescription="@string/write_desc"
+                            android:src="@drawable/write"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text="@string/subtitle_label"
+                            android:textAllCaps="true"/>
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/procedure_title"
+                        android:hint="@string/procedure_title_hint"
+                        android:layout_marginEnd="5dp"
+                        android:inputType="text"
+                        android:layout_marginStart="50dp"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--Image-->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardMaxElevation="1dp"
+                app:cardElevation="0.7dp"
+                app:contentPaddingBottom="0dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="5dp"
+                cardCornerRadius="5dp"
+                android:id="@+id/image_stack"
+                android:layout_below="@+id/title_information">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/camera_label"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/camera"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_weight="1"
+                            android:text="@string/image_title"
+                            android:textAllCaps="true"/>
+
+                        <ImageButton
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="20dp"
+                            android:id="@+id/crop_img"
+                            android:background="@null"
+                            android:scaleType="fitCenter"
+                            android:contentDescription="@string/crop_img"
+                            android:src="@drawable/crop"/>
+
+                        <ImageButton
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="20dp"
+                            android:id="@+id/edit_img"
+                            android:background="@null"
+                            android:scaleType="fitCenter"
+                            android:contentDescription="@string/add_img"
+                            android:src="@drawable/edit_img"/>
+
+                        <ImageButton
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:id="@+id/camera_btn"
+                            android:background="@null"
+                            android:scaleType="fitCenter"
+                            android:contentDescription="@string/add_img"
+                            android:src="@drawable/add_img"/>
+                    </LinearLayout>
+
+                    <!--Add no image at start-->
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:transitionName="image"
+                        android:id="@+id/preview_image"
+                        android:contentDescription="@string/image_title"
+                        android:scaleType="centerCrop"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <!-- Video -->
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardMaxElevation="1dp"
+                app:cardElevation="0.7dp"
+                app:contentPaddingBottom="0dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="5dp"
+                cardCornerRadius="5dp"
+                android:id="@+id/video_stack"
+                android:layout_below="@+id/image_stack">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:scaleType="centerCrop"
+                                android:layout_margin="10dp"
+                                android:contentDescription="@string/video_title"
+                                android:src="@drawable/video"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textSize="18sp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:text="@string/video_title"
+                                android:layout_weight="1"
+                                android:textAllCaps="true"/>
+
+                            <ImageButton
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginEnd="20dp"
+                                android:id="@+id/delete_video_btn"
+                                android:scaleType="fitCenter"
+                                android:background="@null"
+                                android:contentDescription="@string/delete_video_btn"
+                                android:src="@drawable/delete_video"
+                                />
+
+                            <ImageButton
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:id="@+id/video_btn"
+                                android:scaleType="fitCenter"
+                                android:background="@null"
+                                android:contentDescription="@string/add_video"
+                                android:src="@drawable/add_vid"/>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:id="@+id/preview_video"
+                            android:scaleType="centerCrop"
+                            android:transitionName="video"
+                            android:contentDescription="@string/video_title"/>
+
+                        <!--Video Overlay-->
+
+                        <ImageView
+                            android:id="@+id/VideoPreviewPlayButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:layout_centerInParent="true"
+                            android:visibility="gone"
+                            android:src="@drawable/play_overlay"
+                            android:contentDescription="@string/video_overlay"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <!--Procedure Steps -->
+
+            <android.support.v7.widget.CardView
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardMaxElevation="1dp"
+                app:cardElevation="0.7dp"
+                app:contentPaddingBottom="0dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="5dp"
+                cardCornerRadius="5dp"
+                android:layout_below="@+id/video_stack">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="10dp"
+                        android:contentDescription="@string/write_desc"
+                        android:src="@drawable/note"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="@string/procedure_label"
+                        android:textAllCaps="true"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/procedure_explain"
+                    android:padding="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:minLines="5"
+                    android:layout_marginStart="50dp"
+                    android:hint="@string/procedure_step_hint"
+                    android:inputType="textMultiLine" />
+
+            </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <!-- Right Button -->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/left"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentBottom="true">-->
+
+        <!--<ImageButton-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:id="@+id/left_btn"-->
+            <!--android:contentDescription=""-->
+            <!--android:src="@drawable/right"/>-->
+
+    <!--</LinearLayout>-->
+
+
+    <!-- Left Button -->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/right"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentBottom="true">-->
+
+        <!--<ImageButton-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:id="@+id/right_btn"-->
+            <!--android:contentDescription=""-->
+            <!--android:src="@drawable/left"/>-->
+
+    <!--</LinearLayout>-->
+
+
+</RelativeLayout>

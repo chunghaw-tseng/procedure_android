@@ -83,3 +83,11 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+server/venv
+server/logs
+server/stuff
+server/data
+server/libs/__pycache__
+*.pyc
+.DS_Store

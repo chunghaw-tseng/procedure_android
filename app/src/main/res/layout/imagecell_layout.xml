@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="15dp"
+    app:cardMaxElevation="1dp"
+    app:cardElevation="0.7dp"
+    app:contentPaddingBottom="0dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="5dp"
+    cardCornerRadius="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_part">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/image_procedure"
+                android:contentDescription="@string/procedure"
+                android:scaleType="centerCrop"
+                android:paddingBottom="10dp"/>
+
+            <!--<ImageButton-->
+                <!--android:layout_width="35dp"-->
+                <!--android:layout_height="35dp"-->
+                <!--android:src="@drawable/move"-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:id="@+id/drag_btn"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:layout_alignParentEnd="true"-->
+                <!--android:background="@null"/>            -->
+            <ImageButton
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:id="@+id/drag_btn"
+                android:contentDescription="@string/drag_desc"
+                android:layout_alignParentEnd="true"
+                android:background="@null"/>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/image_part"
+            android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="10dp"
+                android:contentDescription="@string/subtitle_label"
+                android:src="@drawable/write"/>
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/subtitle_label"
+                android:textStyle="bold"
+                android:textColor="@color/lighter_black"
+                android:textSize="24sp"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="#c0c0c0"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="10dp"
+                android:contentDescription="@string/procedure_label"
+                android:src="@drawable/note"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/explanation"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/lighter_black"
+                android:text="@string/explanation_label"/>
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

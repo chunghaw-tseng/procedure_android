@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">Package procedure management</string>
+    <string name="view_procedure">Browse</string>
+    <string name="browse_package">Browse Package</string>
+    <string name="edit_procedure">Edit</string>
+    <string name="product_label">Product</string>
+    <string name="edit_package">Edit Package</string>
+    <string name="camera_rationale">The app needs the use the camera.</string>
+    <string name="microphone_rationale">The app needs the use of mircophone</string>
+    <string name="ex_storage_rationale">The app needs the use of external memory</string>
+    <string name="msg_user_denied_permission">The app needs the permissions to work</string>
+    <string name="save_btn">Save</string>
+    <string name="delete_btn">Delete</string>
+    <string name="procedure_step_hint">Steps of this procedure</string>
+    <string name="procedure_title_hint">Title procedure</string>
+    <string name="accept">Accept</string>
+    <string name="downloading">Downloading Data</string>
+    <string name="finish_download">Data Downloaded Successfully</string>
+    <string name="downloading_subtitle">Fetching Data &#8230; Please Wait &#8230;</string>
+    <string name="procedure_save">The data was saved successfully.</string>
+    <string name="delete_alert_title">Deleting Procedure</string>
+    <string name="delete_alert_explain">Are you sure you want to delete?</string>
+    <string name="delete_alert_finish">Procedure was deleted</string>
+    <string name="camera_label">Image</string>
+    <string name="settings_btn">Settings</string>
+    <string name="ipadd_subtitle">IP Address: </string>
+    <string name="downloading_products">Getting Products</string>
+    <string name="downloading_products_sub">Fetching Products &#8230; Please Wait &#8230;</string>
+    <string name="procedure_send"> Saving changes</string>
+    <string name="procedure_change">Sending changes to server &#8230;</string>
+    <string name="procedure_delete_success">Procedure successfully deleted.</string>
+    <string name="check_connection_title">Checking IP Address</string>
+    <string name="wait_msg">Trying to stablish connection. Please Wait &#8230;</string>
+    <string name="device_found">Device was found.</string>
+    <string name="device_not_found">Device was not found. Try with other IP.</string>
+    <string name="settings_saved">Settings were saved</string>
+    <string name="reorder_success">Changes were saved</string>
+    <string name="image_error">Image is required to save.</string>
+    <string name="error_loaddata">Data downloaded is corrupted. Try again.</string>
+    <string name="timeout_error">The connection to the client has timeout. Please check connections.</string>
+    <string name="gateway_error">Failed to receive message from server. Please check connections.</string>
+    <string name="corrupted_error">Data was corrupted. Please check connections and try again.</string>
+    <string name="connection_error">There was an error in the connection. Please try again.</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="edit_title">Edit Title</string>
+    <string name="edit_title_msg">Input New Title</string>
+    <string name="folder_label">Folder</string>
+    <string name="image_title">Image</string>
+    <string name="video_title">Video</string>
+    <string name="senddata_error">Problem happened, Data could not be sent.</string>
+    <string name="zipfile_txt">Zipping Data to send</string>
+
+
+    <!--Alert Box Dialogs-->
+    <string name="overwrite_image_title">Image will be overwritten</string>
+    <string name="overwrite_video_title">Video will be overwritten</string>
+    <string name="delete_video_title">Video will be deleted</string>
+    <string name="overwrite_explain">Are you sure?</string>
+    <string name="creating_file">Creating File from Downloaded Data&#8230;</string>
+    <string name="unzipping_file">Unzipping File&#8230;</string>
+    <string name="unzipping_img">Creating Images &#8230;</string>
+    <string name="unzipping_meta">Creating Files &#8230;</string>
+    <string name="unzipping_videos">Creating Videos &#8230;</string>
+
+    <string name="zip_file">Creating Zip File&#8230;</string>
+    <string name="clean_up">Cleaning resources</string>
+    <string name="savefile_error">ERROR : Couldn\'t create files to save, try again.</string>
+    <string name="metdata_error">ERROR : Couldn\'t write metadata to save, try again.</string>
+    <string name="saving_video">Saving Video</string>
+    <string name="getting_res">Getting resources &#8230;</string>
+    <string name="compress_video">Compressing Video &#8230;</string>
+    <string name="video_error">Error in compressing Video</string>
+    <string name="video_success">Video Saved</string>
+
+    <!--Content Descriptions-->
+    <string name="procedure">Procedure Image</string>
+    <string name="drag_desc">Drag</string>
+    <string name="subtitle_label">Subtitle</string>
+    <string name="explanation_label">Explanation</string>
+    <string name="back_btn">Back</string>
+    <string name="procedure_label">Procedure Steps</string>
+    <string name="write_desc">Write</string>
+    <string name="add_img">Edit Image</string>
+    <string name="add_video">Edit Video</string>
+    <string name="video_overlay">Play</string>
+    <string name="delete_video_btn">Delete Video</string>
+    <string name="crop_img">Crop Image</string>
+    <string name="save_procedure">Please save procedure first.</string>
+
+
+    <!--Edit Image-->
+    <string name="label_brush">Brush</string>
+    <string name="label_eraser">Eraser</string>
+    <string name="label_text">Text</string>
+    <string name="image_edit_saved">Image Saved Successfully</string>
+    <string name="image_edit_failed">Failed to save Image, Try again</string>
+    <string name="saving">Saving...</string>
+    <string name="confirm_edit_exit">Are you want to exit without saving image ?</string>
+    <string name="discard_btn">Discard</string>
+    <string name="brush">Brush</string>
+    <string name="text">Text</string>
+    <string name="eraser">Eraser</string>
+    <string name="no_img">No Image to edit</string>
+    <string name="prev_procedure">Next Procedure</string>
+    <string name="next_procedure">Previous Procedure</string>
+    <string name="no_next_procedure">No more next procedure</string>
+    <string name="no_prev_procedure">No more previous procedure</string>
+
+
+
+</resources>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">梱包手順管理アプリ</string>
+    <string name="view_procedure">閲覧</string>
+    <string name="edit_procedure">編集</string>
+    <string name="browse_package">梱包手順閲覧</string>
+    <string name="product_label">商品</string>
+    <string name="procedure">手順写真</string>
+    <string name="edit_package">梱包手順編集</string>
+    <string name="camera_rationale">カメラの許可が必要です。</string>
+    <string name="microphone_rationale">マイクロフォンの許可が必要です。</string>
+    <string name="ex_storage_rationale">外部メモリの許可が必要です。</string>
+    <string name="msg_user_denied_permission">このアプリは色々な許可が必要です。</string>
+    <string name="save_btn">保存</string>
+    <string name="delete_btn">削除</string>
+    <string name="procedure_step_hint">梱包手順</string>
+    <string name="procedure_title_hint">手順のタイトル</string>
+    <string name="accept">確認</string>
+    <string name="subtitle_label">サブタイトル</string>
+    <string name="explanation_label">説明</string>
+    <string name="downloading">データダウンロード中</string>
+    <string name="finish_download">データダウンロード完了</string>
+    <string name="downloading_subtitle">データを読み込み中 &#8230;　少々お待ちください。</string>
+    <string name="procedure_save">データは保存しました。</string>
+    <string name="delete_alert_title">手順の削除</string>
+    <string name="delete_alert_explain">削除しますか？</string>
+    <string name="delete_alert_finish">手順は削除しました</string>
+    <string name="procedure_label">手順</string>
+    <string name="camera_label">写真</string>
+    <string name="settings_btn">設定</string>
+    <string name="ipadd_subtitle">IP アドレス: </string>
+    <string name="downloading_products">データのダウンロード</string>
+    <string name="downloading_products_sub">商品のデータをダウンロード中 &#8230; 少々お待ちください &#8230;</string>
+    <string name="procedure_send">データを保存</string>
+    <string name="procedure_change">サーバと通信中 &#8230;</string>
+    <string name="procedure_delete_success">梱包手順は削除しました。</string>
+    <string name="check_connection_title">IPアドレスの確認</string>
+    <string name="wait_msg">接続中 &#8230; 少々お待ちください &#8230;</string>
+    <string name="device_found">デバイスが見つかりました。</string>
+    <string name="device_not_found">デバイスは見つかりませんでした。 他のIPアドレスでもう一度試してみてください。</string>
+    <string name="settings_saved">設定を保存しました。</string>
+    <string name="reorder_success">変更は保存しました。</string>
+    <string name="image_error">保存するために写真が必要です。</string>
+    <string name="back_btn">戻る</string>
+    <string name="overwrite_image_title">写真を上書きする</string>
+    <string name="overwrite_explain">よろしいでしょうか？</string>
+    <string name="error_loaddata">ダウンロードしたデータはエラーがあります。もう一度試してみてください。</string>
+    <string name="timeout_error">サーバーの接続はタイムアウトしました。接続を確認ください。</string>
+    <string name="gateway_error">サーバーからのメッセージは受け取れなかったです。接続を確認ください。</string>
+    <string name="corrupted_error">データーは破損しています。接続を確認ください。</string>
+    <string name="connection_error">接続のエラーが発生しました。もう一度試してみてください。</string>
+    <string name="cancel_btn">キャンセル</string>
+    <string name="edit_title">タイトル編集</string>
+    <string name="edit_title_msg">タイトルを入力ください</string>
+    <string name="senddata_error">問題発生しました。データは受信できませんでした。</string>
+    <string name="zipfile_txt">送信するデータを圧縮する</string>
+
+
+    <string name="folder_label">フォルダー</string>
+    <string name="drag_desc">ドラッグ</string>
+    <string name="image_title">画像</string>
+    <string name="video_title">ビデオ録画</string>
+    <string name="overwrite_video_title">ビデオは上書きされます</string>
+    <string name="delete_video_title">ビデオは削除します</string>
+    <string name="write_desc">書き込み</string>
+    <string name="add_img">画像編集</string>
+    <string name="add_video">ビデオ編集</string>
+    <string name="video_overlay">プレー</string>
+    <string name="delete_video_btn">ビデオ削除</string>
+    <string name="crop_img">クロップ画像</string>
+    <string name="save_procedure">先に手順を保存してください。</string>
+
+
+    <string name="creating_file">ダウンロードしたデータからファイルを作成しています...</string>
+    <string name="unzipping_file">ファイルを解凍中...</string>
+    <string name="zip_file">Zipファイルを作成しています...</string>
+    <string name="clean_up">リソースを片付けいます</string>
+    <string name="savefile_error">エラー：保存するファイルを作成できませんでした。やり直してください。</string>
+    <string name="metdata_error">エラー：保存するメタデータを書き込めませんでした。もう一度やり直してください。</string>
+    <string name="saving_video">ビデオを保存する...</string>
+    <string name="getting_res">リソースを入手する &#8230;</string>
+    <string name="unzipping_img">画像を作成する &#8230;</string>
+    <string name="unzipping_meta">ファイルを作成する &#8230;</string>
+    <string name="unzipping_videos">動画を作成する &#8230;</string>
+    <string name="compress_video">ビデオを圧縮しています &#8230;</string>
+
+
+
+    <!--Edit Image-->
+    <string name="label_brush">ブラシ</string>
+    <string name="label_eraser">消しゴム</string>
+    <string name="label_text">テキスト</string>
+    <string name="image_edit_saved">画像は保存しました。</string>
+    <string name="image_edit_failed">画像の保存は失敗しました。</string>
+    <string name="saving">保存中...</string>
+    <string name="confirm_edit_exit">保存せずに終了しますか？</string>
+    <string name="discard_btn">捨てる</string>
+    <string name="brush">ブラシ</string>
+    <string name="text">テキスト</string>
+    <string name="eraser">消しゴム</string>
+    <string name="no_img">編集する画像がありません</string>
+    <string name="prev_procedure">次の手順</string>
+    <string name="next_procedure">前の手順</string>
+    <string name="no_next_procedure">次の手順がありません</string>
+    <string name="no_prev_procedure">前の手順がありません</string>
+
+
+
+
+</resources>
